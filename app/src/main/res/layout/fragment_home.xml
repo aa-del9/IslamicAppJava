@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.oop_project.cs212.islamicapp.fragments.Home"
+    android:background="@drawable/background_image">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:padding="5dp"
+            android:background="@drawable/background_image"
+            android:layout_above="@+id/createNewImageBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/createImageRL"
+            android:orientation="vertical"
+            android:gravity="center">
+            <RelativeLayout
+                android:padding="10dp"
+                android:background="#c44caf50"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/appNameTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:text="@string/app_sub_name"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/atkharTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/forumUrlTv"
+                    android:layout_below="@+id/appNameTv"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="50sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/createNewImageBtn"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="@string/create_new"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+</FrameLayout>
