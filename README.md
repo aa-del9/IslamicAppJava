@@ -1,5 +1,6 @@
 ### Introduction
 An accurate Prayer time & Qibla direction application on mobile devices. The app also features the full Quran with Arabic scripts and searching surah by specific surah name also prayer time and Qibla direction is the feature of this app. Available in three languages : English, Urdu, and Arabic.
+Developed as an End-semester Project For OOP at NUST.
 
 ### Features of the project
 
