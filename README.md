@@ -1,5 +1,5 @@
 ### Introduction
-Recognized by millions of Islam followers through the Muslim world as the most accurate Prayer time & Qibla direction application on mobile devices. Muslim Athkar Islamic Reminders also features the full Quran with Arabic scripts and searching surah by specific surah name also prayer time and Qibla direction is the feature of this app. It is now currently available on total 18 different languages. 
+An accurate Prayer time & Qibla direction application on mobile devices. The app also features the full Quran with Arabic scripts and searching surah by specific surah name also prayer time and Qibla direction is the feature of this app. Available in three languages : English, Urdu, and Arabic.
 
 ### Features of the project
 
@@ -18,47 +18,4 @@ Recognized by millions of Islam followers through the Muslim world as the most a
         7. Islamic special days specific verse example on ramadan app will notify user ramadan related verse 
 
 
-### Project screenshot
 
-**Home page**
-
-</br>
-<img height='500' width ='300' src="https://i.imgur.com/uQu9j0q.png" />
-<img height='500' width ='300' src="https://i.imgur.com/Q9z1AQW.png" />
-</br>
-
-**Menu**
-
-</br>
-<img height='500' width ='300' src="https://i.imgur.com/E7Yxp16.png" />
-</br>
-
-**Qibla Direction**
-
-</br>
-<img height='500' width ='300' src="https://i.imgur.com/mmiR5HO.png" />
-</br>
-
-**Read Quran**
-
-</br>
-<img height='500' width ='300' src="https://i.imgur.com/Y8R1r2F.png" />
-</br>
-
-**Search surah**
-
-</br>
-<img height='500' width ='300' src="https://i.imgur.com/ofnTIBV.png" />
-</br>
-
-**Prayer time**
-
-</br>
-<img height='500' width ='300' src="https://i.imgur.com/EYk1qkp.png" />
-</br>
-
-
-***Google play store link: https://bit.ly/2xu3lz3***
-
-## License
-This project is licensed under the MIT License - see the [License File](LICENSE) for details
