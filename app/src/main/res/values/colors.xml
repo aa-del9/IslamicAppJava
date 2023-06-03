@@ -7,10 +7,11 @@
     <color name="color_navy_blue">#8b31b4</color>
     <color name="color_black">#434242</color>
     <color name="black_light">#999696</color>
-
+    <color name="golden">#FDF0BC</color>
     <color name="white_transparent">#80FFFFFF</color>
     <color name="white_transparent_lowest">#67ffffff</color>
     <color name="color_green">#76FF03</color>
+    <color name="color_madni">#0A3A0C</color>
     <color name="white_dark">#86ffffff</color>
     <color name="black_transparent">#252222</color>
     <color name="black">#000000</color>

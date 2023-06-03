@@ -9,25 +9,8 @@ public class DBHelper extends SQLiteOpenHelper{
     public static final int DB_VERSION = 1;
     public static final String DB_NAME = "aafwathakkir";
 
-    public static final String TABLE_AMHARIC = "amharic";
     public static final String TABLE_ARABIC = "arabic";
-    public static final String TABLE_AZERBAIJANI = "azerbaijani";
-    public static final String TABLE_AZERI = "azeri";
-    public static final String TABLE_BEHASA_MALAYU = "behasa_melayu";
-    public static final String TABLE_BENGALI = "bengali";
-    public static final String TABLE_CHINESE_SIMPLIFIED = "chinese_simplified";
-    public static final String TABLE_CHINESE_TRADITIONAL = "chinese_traditional";
     public static final String TABLE_ENGLISH = "english";
-    public static final String TABLE_FRENCH = "french";
-    public static final String TABLE_GERMAN = "german";
-    public static final String TABLE_HINDI = "hindi";
-    public static final String TABLE_INDONESIAN = "indonesian";
-    public static final String TABLE_MALAY = "malay";
-    public static final String TABLE_PASHTO = "pashto";
-    public static final String TABLE_PERSIAN = "persian";
-    public static final String TABLE_RUSSIAN = "russian";
-    public static final String TABLE_SPANISH = "spanish";
-    public static final String TABLE_TURKISH = "turkish";
     public static final String TABLE_URDU = "urdu";
 
     public static final String COL_ID = "id";
@@ -98,75 +81,6 @@ public class DBHelper extends SQLiteOpenHelper{
             +COL_ATHKAR+" TEXT, "
             +COL_TAG+" TEXT );";
 
-//    public static final String FRENCH_QUERY = "Create Table "
-//            +TABLE_FRENCH+" ( "
-//            +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
-//            +COL_ATHKAR_ID+" Integer not null, "
-//            +COL_ATHKAR+" TEXT, "
-//            +COL_TAG+" TEXT );";
-//
-//    public static final String GERMAN_QUERY = "Create Table "
-//            +TABLE_GERMAN+" ( "
-//            +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
-//            +COL_ATHKAR_ID+" Integer not null, "
-//            +COL_ATHKAR+" TEXT, "
-//            +COL_TAG+" TEXT );";
-//
-//    public static final String HINDI_QUERY = "Create Table "
-//            +TABLE_HINDI+" ( "
-//            +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
-//            +COL_ATHKAR_ID+" Integer not null, "
-//            +COL_ATHKAR+" TEXT, "
-//            +COL_TAG+" TEXT );";
-//
-//    public static final String INDONESIAN_QUERY = "Create Table "
-//            +TABLE_INDONESIAN+" ( "
-//            +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
-//            +COL_ATHKAR_ID+" Integer not null, "
-//            +COL_ATHKAR+" TEXT, "
-//            +COL_TAG+" TEXT );";
-//
-//    public static final String MALAY_QUERY = "Create Table "
-//            +TABLE_MALAY+" ( "
-//            +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
-//            +COL_ATHKAR_ID+" Integer not null, "
-//            +COL_ATHKAR+" TEXT, "
-//            +COL_TAG+" TEXT );";
-//
-//    public static final String PASHTO_QUERY = "Create Table "
-//            +TABLE_PASHTO+" ( "
-//            +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
-//            +COL_ATHKAR_ID+" Integer not null, "
-//            +COL_ATHKAR+" TEXT, "
-//            +COL_TAG+" TEXT );";
-//
-//    public static final String PERSIAN_QUERY = "Create Table "
-//            +TABLE_PERSIAN+" ( "
-//            +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
-//            +COL_ATHKAR_ID+" Integer not null, "
-//            +COL_ATHKAR+" TEXT, "
-//            +COL_TAG+" TEXT );";
-//
-//    public static final String RUSSIAN_QUERY = "Create Table "
-//            +TABLE_RUSSIAN+" ( "
-//            +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
-//            +COL_ATHKAR_ID+" Integer not null, "
-//            +COL_ATHKAR+" TEXT, "
-//            +COL_TAG+" TEXT );";
-//
-//    public static final String SPANISH_QUERY = "Create Table "
-//            +TABLE_SPANISH+" ( "
-//            +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
-//            +COL_ATHKAR_ID+" Integer not null, "
-//            +COL_ATHKAR+" TEXT, "
-//            +COL_TAG+" TEXT );";
-//
-//    public static final String TURKISH_QUERY = "Create Table "
-//            +TABLE_TURKISH+" ( "
-//            +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
-//            +COL_ATHKAR_ID+" Integer not null, "
-//            +COL_ATHKAR+" TEXT, "
-//            +COL_TAG+" TEXT );";
 
     public static final String URDU_QUERY = "Create Table "
             +TABLE_URDU+" ( "

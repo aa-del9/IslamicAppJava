@@ -148,7 +148,7 @@ public class SettingsPresenter implements MVPPresenter.SettingsPresenter{
         savedData.setAppStartMin(calendar.get(Calendar.MINUTE));
 
         if (newInterval != savedData.getOldRemainderInterval()) {
-            homeFragment.updateRemainder(fragment.getContext(),calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), newInterval);
+           // homeFragment.updateRemainder(fragment.getContext(),calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), newInterval);
             savedData.setOldRemainderInterval(newInterval);
         }
     }

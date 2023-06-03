@@ -11,6 +11,7 @@ import android.media.MediaPlayer;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.net.wifi.WifiManager;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
@@ -23,6 +24,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -36,6 +38,7 @@ import com.oop_project.cs212.islamicapp.interfaces.CallAttachBaseContext;
 
 import com.oop_project.cs212.islamicapp.R;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, CallAttachBaseContext {
+//
 
     private RelativeLayout navHomeRl,navPrayerRl,navQiblaRl,navQuranRl,navSettingRl;
 

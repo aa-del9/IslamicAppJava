@@ -11,14 +11,14 @@ import com.oop_project.cs212.islamicapp.adapters.PrayerTimeAdapter;
 public interface MVPView {
     interface HomeView{
 
-        void setTodayImage(String data);
-
-        void storeBitMapImage(Bitmap bitmap);
-
-
-        void updateRemainder(Context context, int hour, int mint, long interval);
-
-        void shareImage(Intent shareIntent);
+//        void setTodayImage(String data);
+//
+//        void storeBitMapImage(Bitmap bitmap);
+//
+//
+//        void updateRemainder(Context context, int hour, int mint, long interval);
+//
+//        void shareImage(Intent shareIntent);
     }
     interface PrayerTimeView{
 

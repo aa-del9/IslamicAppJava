@@ -1,75 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.oop_project.cs212.islamicapp.fragments.Home"
-    android:background="@drawable/background_image">
+    android:orientation="vertical"
+    android:background="@color/color_madni">
+
+    <!-- App logo -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="112dp"
+        android:background="@color/color_madni"
+        android:layout_margin="5dp">
+
+
+        <ImageView
+            android:id="@+id/appicon"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_gravity="left"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="18dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/app_icon_144" />
+
+        <TextView
+            android:layout_width="329dp"
+            android:textSize="25dp"
+            android:text="@string/app_name"
+            android:gravity="center"
+            android:textColor="@color/golden"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@id/appicon"
+            android:layout_toRightOf="@id/appicon" />
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="77dp">
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="317dp">
+
+
         <RelativeLayout
-            android:padding="5dp"
-            android:background="@drawable/background_image"
-            android:layout_above="@+id/createNewImageBtn"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/createImageRL"
-            android:orientation="vertical"
-            android:gravity="center">
-            <RelativeLayout
-                android:padding="10dp"
-                android:background="#c44caf50"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            android:layout_width="206dp"
+            android:layout_height="260dp">
+
+
+            <ImageView
+                android:id="@+id/clockfaceview"
+                android:layout_width="155dp"
+                android:layout_height="180dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_analog_clock" />
+            <ImageView
+                android:id="@+id/clockframe"
+                android:layout_width="177dp"
+                android:layout_height="180dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/clock_frame" />
+
+            <ImageView
+                android:id="@+id/hourhand"
+                android:layout_width="174dp"
+                android:layout_height="175dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/hour_hand" />
+
+            <ImageView
+                android:id="@+id/minutehand"
+                android:layout_width="174dp"
+                android:layout_height="177dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/minute_hand" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/clockfaceview"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/appNameTv"
-                    android:layout_width="match_parent"
+                    android:id="@+id/clockTextView"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="20dp"
                     android:gravity="center"
-                    android:maxLines="2"
-                    android:text="@string/app_sub_name"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textColor="#C09E52"
+                    android:textSize="20sp" />
+            </LinearLayout>
 
-                <TextView
-                    android:id="@+id/atkharTv"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_above="@+id/forumUrlTv"
-                    android:layout_below="@+id/appNameTv"
-                    android:layout_centerInParent="true"
-                    android:gravity="center"
-                    android:textColor="@color/white"
-                    android:textSize="50sp"
-                    android:textStyle="bold" />
-
-            </RelativeLayout>
 
         </RelativeLayout>
-
-        <Button
-            android:id="@+id/createNewImageBtn"
-            android:layout_width="150dp"
-            android:layout_height="40dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerInParent="true"
-            android:layout_marginBottom="10dp"
-            android:background="@color/colorPrimaryDark"
-            android:text="@string/create_new"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
     </RelativeLayout>
 
-</FrameLayout>
+
+    <!-- Welcome message -->
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/welcome_message"-->
+<!--        android:textSize="24sp"-->
+<!--        android:textColor="@android:color/black"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:layout_marginTop="16dp" />-->
+
+<!--    &lt;!&ndash; Features section &ndash;&gt;-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:gravity="center">-->
+
+<!--        &lt;!&ndash; Prayer times feature &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:orientation="vertical"-->
+<!--            android:gravity="center">-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="96dp"-->
+<!--                android:layout_height="96dp"-->
+<!--                android:src="@drawable/prayer_times_icon"-->
+<!--                android:scaleType="centerCrop"-->
+<!--                android:contentDescription="@string/prayer_times" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/prayer_times"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textColor="@android:color/black"-->
+<!--                android:layout_marginTop="8dp" />-->
+<!--        </LinearLayout>-->
+
+<!--        &lt;!&ndash; Quran feature &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:orientation="vertical"-->
+<!--            android:gravity="center">-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="96dp"-->
+<!--                android:layout_height="96dp"-->
+<!--                android:src="@drawable/quran_icon"-->
+<!--                android:scaleType="centerCrop"-->
+<!--                android:contentDescription="@string/quran" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/quran"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textColor="@android:color/black"-->
+<!--                android:layout_marginTop="8dp" />-->
+<!--        </LinearLayout>-->
+<!--    </LinearLayout>-->
+
+<!--    &lt;!&ndash; Footer section &ndash;&gt;-->
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/footer_message"-->
+<!--        android:textSize="14sp"-->
+<!--        android:textColor="@android:color/darker_gray"-->
+<!--        android:gravity="center"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:padding="16dp" />-->
+</LinearLayout>
