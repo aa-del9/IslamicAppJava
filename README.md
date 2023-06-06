@@ -4,19 +4,14 @@ Developed as an End-semester Project For OOP at NUST.
 
 ### Features of the project
 
-        1. Read Quran verses meanings in 18 different languages.
+        1. Get prayer time in the user chosen calculation method.
 
-        2. Get prayer time in the user chosen calculation method.
+        2. Get guideline towards the Kaaba by qibla compass.
 
-        3. Get guideline towards the Kaaba by qibla compass.
+        3. Read Quran with Arabic script.
 
-        4. Read Quran with Arabic script.
+        4. Search surah name by both English and Arabic language.
 
-        5. Search surah name by both English and Arabic language.
-
-        6. Change anytime application language.
-        
-        7. Islamic special days specific verse example on ramadan app will notify user ramadan related verse 
-
+        5. Change anytime application language
 
 
