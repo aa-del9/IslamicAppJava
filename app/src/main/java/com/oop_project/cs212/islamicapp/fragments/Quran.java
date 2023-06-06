@@ -50,7 +50,7 @@ public class Quran extends Fragment implements MVPView.QuranView, OnPageChangeLi
     private MaterialSearchBar searchBar;
     private CustomSuggestionsAdapter customSuggestionsAdapter;
     private MVPPresenter.QuranPresenter presenter;
-    private MediaPlayer ring;
+
 
 
     @Override
@@ -59,13 +59,11 @@ public class Quran extends Fragment implements MVPView.QuranView, OnPageChangeLi
         // Inflate the layout for this fragment
         view =  inflater.inflate(R.layout.fragment_quran, container, false);
         initializeAll();
-        playSound();//it will play allhu akbar sound
 
         return view;
     }
 
     private void initializeAll() {
-        ring= MediaPlayer.create(getContext(),R.raw.prayer_allahu_akbar);
         pdfView = view.findViewById(R.id.pdfView);
         surahs = new ArrayList<>();
 
@@ -189,14 +187,7 @@ public class Quran extends Fragment implements MVPView.QuranView, OnPageChangeLi
     }
 
 
-    public void playSound(){
-        if (!ring.isPlaying()) {
-            ring.start();
-        }
-    }
-    @Override
-    public void onPause() {
-        ring.stop();
-        super.onPause();
-    }
+
+
+
 }

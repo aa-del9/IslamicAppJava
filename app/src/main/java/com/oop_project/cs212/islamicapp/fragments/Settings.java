@@ -58,18 +58,18 @@ public class Settings extends Fragment implements MVPView.SettingsView{
 
     private void initializeAll() {
         languageSp = view.findViewById(R.id.languageSp);
-        frequencySp = view.findViewById(R.id.frequencySp);
+        //frequencySp = view.findViewById(R.id.frequencySp);
         prayerTimeCalculationSp = view.findViewById(R.id.prayerTimeCalculationMethodSp);
         juristicSp = view.findViewById(R.id.juristicMethodSp);
 
-        remainderSp = view.findViewById(R.id.remainderLanguageSp);
+        //remainderSp = view.findViewById(R.id.remainderLanguageSp);
 
         presenter = new SettingsPresenter(this);
 
         appLanguageTv = view.findViewById(R.id.appLanguageTv);
         calculationMethodTv = view.findViewById(R.id.calculationMethodTv);
         juristicMethodTv = view.findViewById(R.id.juristicMethodTv);
-        ring= MediaPlayer.create(getContext(),R.raw.saved_alhamdu);
+        //ring= MediaPlayer.create(getContext(),R.raw.saved_alhamdu);
         saveButton = view.findViewById(R.id.savedBtn);
         saveButton.setOnClickListener(saveBtnListener);
 
@@ -106,22 +106,22 @@ public class Settings extends Fragment implements MVPView.SettingsView{
 
     }
 
-    @Override
-    public void initializeFrequencySpinner(ArrayAdapter adapter, String selectedName, int position) {
 
-        frequencySp.setAdapter(adapter);
-
-        frequencySp.setSelection(position);
-        frequencySp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                frequencyId = position;
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {}
-        });
-
-    }
+//    public void initializeFrequencySpinner(ArrayAdapter adapter, String selectedName, int position) {
+//
+//        frequencySp.setAdapter(adapter);
+//
+//        frequencySp.setSelection(position);
+//        frequencySp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                frequencyId = position;
+//            }
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {}
+//        });
+//
+//    }
 
 
 
@@ -160,13 +160,13 @@ public class Settings extends Fragment implements MVPView.SettingsView{
         });
     }
 
-    @Override
-    public void initializeRemainderLanguage(ArrayAdapter adapter, boolean[] selectedLanguage){
-        remainderSp.setAdapter(adapter,false,onSelectedListener);
-        remainderSp.setSelected(selectedLanguage);
-
-        this.selectedLanguage = selectedLanguage;
-    }
+//    @Override
+//    public void initializeRemainderLanguage(ArrayAdapter adapter, boolean[] selectedLanguage){
+//        remainderSp.setAdapter(adapter,false,onSelectedListener);
+//        remainderSp.setSelected(selectedLanguage);
+//
+//        this.selectedLanguage = selectedLanguage;
+//    }
 
     private MultiSpinner.MultiSpinnerListener onSelectedListener = new MultiSpinner.MultiSpinnerListener() {
         public void onItemsSelected(boolean[] selected) {
@@ -180,12 +180,8 @@ public class Settings extends Fragment implements MVPView.SettingsView{
     View.OnClickListener saveBtnListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            presenter.saveSelectedRemainderLanguage(selectedLanguage);
             if (appLanguageId !=-1){
                 presenter.saveAppLanguageId(appLanguageId);
-            }
-            if (frequencyId !=-1){
-                presenter.saveFrequencyId(frequencyId);
             }
             if (prayerTimeId !=-1){
                 presenter.saveCalculationMethodId(prayerTimeId);

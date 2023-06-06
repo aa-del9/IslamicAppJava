@@ -10,16 +10,10 @@ import com.oop_project.cs212.islamicapp.adapters.PrayerTimeAdapter;
 
 public interface MVPView {
     interface HomeView{
+        void setCityName(String cityName);
 
-//        void setTodayImage(String data);
-//
-//        void storeBitMapImage(Bitmap bitmap);
-//
-//
-//        void updateRemainder(Context context, int hour, int mint, long interval);
-//
-//        void shareImage(Intent shareIntent);
     }
+
     interface PrayerTimeView{
 
         void initializeRecyclerView(PrayerTimeAdapter adapter);
@@ -48,14 +42,11 @@ public interface MVPView {
 
         void initializeLanguageSpinner(ArrayAdapter adapter, String selectedName, int position);
 
-        void initializeFrequencySpinner(ArrayAdapter adapter, String selectedName, int position);
 
         void initializePrayerTimeCalculationSpinner(ArrayAdapter adapter, String selectedName, int position);
 
         void initializeJuristicSpinner(ArrayAdapter adapter, String selectedName, int position);
 
-
-        void initializeRemainderLanguage(ArrayAdapter adapter, boolean[] selectedLanguage);
     }
 
 }

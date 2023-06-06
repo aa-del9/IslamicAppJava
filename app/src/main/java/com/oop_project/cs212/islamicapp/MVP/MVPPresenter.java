@@ -10,18 +10,11 @@ import java.io.File;
 import java.util.ArrayList;
 
 public interface MVPPresenter {
-
     interface HomePresenter{
-        void createBitMap(View view);
-
-        void createIntentToShareImage(File filePath);
-
-        void initializeRemainder();
-
-        void prepareAtkhar();
-
-        void prepareAtkharBtnPress();
+        void startCalculationPrayerTime();
+        ArrayList calculateTime();
     }
+
     interface PrayerTimePresenter{
         void startCalculationPrayerTime();
     }
@@ -46,12 +39,10 @@ public interface MVPPresenter {
 
         void saveAppLanguageId(int id);
 
-        void saveFrequencyId(int id);
 
         void saveCalculationMethodId(int id);
 
         void saveJuristicMethodId(int id);
 
-        void saveSelectedRemainderLanguage(boolean[] selectedLanguage);
     }
 }

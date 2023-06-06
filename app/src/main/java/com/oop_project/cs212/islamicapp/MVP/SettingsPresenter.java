@@ -45,26 +45,11 @@ public class SettingsPresenter implements MVPPresenter.SettingsPresenter{
     @Override
     public void prepareAdapters(){
         languageAdapter();
-        frequencyAdapter();
         prayerTimeCalculationMethod();
         juristicMethod();
-        remainderLanguageAdapter();
-    }
-
-    private void remainderLanguageAdapter() {
-
-        List<String> temp = Arrays.asList(fragment.getContext().getResources().getStringArray(R.array.remainder_language));
-        int size = temp.size();
-
-        boolean[] selectedLanguage = savedData.getRemainderLanguages(size);
-
-        adapter = new ArrayAdapter<>(fragment.getContext(), android.R.layout.simple_spinner_item);
-        for (String data: temp){
-            adapter.add(data);
-        }
-        mvpView.initializeRemainderLanguage(adapter,selectedLanguage);
 
     }
+
 
 
     private void juristicMethod() {
@@ -89,18 +74,6 @@ public class SettingsPresenter implements MVPPresenter.SettingsPresenter{
 
         SpinnerAdapter adapter = new SpinnerAdapter(fragment.getContext(), prayerTimeCalculationMethods);
         mvpView.initializePrayerTimeCalculationSpinner(adapter,selectedName, indexNo);
-    }
-
-    private void frequencyAdapter() {
-        frequencies = null;
-        frequencies = Arrays.asList(fragment.getContext().getResources().getStringArray(R.array.frequency));
-
-        int indexNo = savedData.getFrequencySelectedId();
-        String selectedName = frequencies.get(indexNo);
-
-
-        SpinnerAdapter adapter = new SpinnerAdapter(fragment.getContext(), frequencies);
-        mvpView.initializeFrequencySpinner(adapter,selectedName, indexNo);
     }
 
     private void languageAdapter() {
@@ -136,48 +109,7 @@ public class SettingsPresenter implements MVPPresenter.SettingsPresenter{
 
     }
 
-    @Override
-    public void saveFrequencyId(int id){
-        long newInterval = calculateInterval(id);
-        Calendar calendar = Calendar.getInstance();
 
-        savedData.setFrequencySelectedId(id);
-        savedData.setNewRemainderInterval(newInterval);
-
-        savedData.setAppStartHour(calendar.get(Calendar.HOUR_OF_DAY));
-        savedData.setAppStartMin(calendar.get(Calendar.MINUTE));
-
-        if (newInterval != savedData.getOldRemainderInterval()) {
-           // homeFragment.updateRemainder(fragment.getContext(),calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), newInterval);
-            savedData.setOldRemainderInterval(newInterval);
-        }
-    }
-
-    private long calculateInterval(int id) {
-        /*
-    <string-array name="frequency">
-        <item>Every 5 mins</item>
-        <item>Every 15 mins</item>
-        <item>Every 1 hour</item>
-        <item>Every 6 hours</item>
-        <item>Once 12 hours</item>
-        */
-
-        switch (id){
-            case 0:
-                return (AlarmManager.INTERVAL_FIFTEEN_MINUTES/3);
-            case 1:
-                return (AlarmManager.INTERVAL_FIFTEEN_MINUTES);
-            case 2:
-                return (AlarmManager.INTERVAL_HOUR);
-            case 3:
-                return AlarmManager.INTERVAL_HALF_DAY;
-            case 4:
-                return AlarmManager.INTERVAL_DAY;
-        }
-
-        return AlarmManager.INTERVAL_HOUR;
-    }
 
     @Override
     public void saveCalculationMethodId(int id){
@@ -186,11 +118,6 @@ public class SettingsPresenter implements MVPPresenter.SettingsPresenter{
     @Override
     public void saveJuristicMethodId(int id){
         savedData.setJuristicMethodId(id);
-    }
-    @Override
-    public void saveSelectedRemainderLanguage(boolean[] selectedLanguage){
-        savedData.storeRemainderLanguages(selectedLanguage);
-        generateNewAthkarTable();
     }
 
     public void generateNewAthkarTable(){

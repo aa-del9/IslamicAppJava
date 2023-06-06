@@ -18,13 +18,8 @@
     <string name="location_permission_title">Location Permission</string>
     <string name="ok">OK</string>
     <string name="location_permission_message">Access this device location</string>
-    <string name="notification_title">You have one quran athkar to read</string>
-    <string name="notification_subtitle">Watch this now?</string>
     <string name="find_surah">Find surah..</string>
     <string name="no_internet_connection">You have no Internet connection</string>
-    <string name="refresh_screen_for_permission_message">please refresh screen for permission message</string>
-    <string name="new_image_created">New Image Created</string>
-    <string name="share_via">Share Via…</string>
     <string name="city_name">City</string>
 
     <string name="gps_permission">GPS is not enabled. Do you want to go to settings menu?.</string>
@@ -37,12 +32,7 @@
 
 
     <string name="app_language">Please choose your language: </string>
-    <string name="frequency">How often do you wish to see a verse / reminder?</string>
-    <string name="remainder_language">In which languages do you wish to see reminders?  (You can choose many languages below)</string>
-    <string name="app_signature">Download this beautiful app of Koran / Islamic reminders from the</string>
     <string name="save">Saved</string>
-    <string name="share_thanks">Share. Thank you.</string>
-    <string name="create_new">New</string>
 
     <string name="fajr">Fajr</string>
     <string name="sunrise">Sunrise</string>
@@ -52,7 +42,7 @@
     <string name="isha">Isha</string>
     <string name="app_sub_name">Islamic App</string>
     <string name="app_title">Islamic App</string>
-    <string name="app_slogan">Islamic Reminders</string>
+    <string name="app_slogan">A Handy Muslim go-to app</string>
     <string name="no_data">No data found</string>
     <string name="gps_setting_title">GPS settings</string>
     <string name="settings">Settings</string>
@@ -79,6 +69,20 @@
         <item>Hanafi</item>
     </string-array>
 
+    <string-array name="islamic_months">
+        <item>Muharram</item>
+        <item>Safar</item>
+        <item>Rabi\\\' al - Awwal</item>
+        <item>Rabi\\\' al - Thani</item>
+        <item>Jammada al - Awwal</item>
+        <item>Jammada al - Thani</item>
+        <item>Rajab</item>
+        <item>Sha\\\'ban</item>
+        <item>Ramadan</item>
+        <item>Shawwal</item>
+        <item>Dhu al - Qadah</item>
+        <item>Dhu al - Hijja</item>
+    </string-array>
 
 
 

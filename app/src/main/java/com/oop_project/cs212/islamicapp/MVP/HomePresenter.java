@@ -1,206 +1,191 @@
-//package com.oop_project.cs212.islamicapp.MVP;
-//
-//import android.content.Context;
-//import android.content.Intent;
-//import android.graphics.Bitmap;
-//import android.graphics.Canvas;
-//import android.graphics.Color;
-//import android.graphics.drawable.Drawable;
-//import android.net.Uri;
-//import android.os.Build;
-//import android.support.v4.app.Fragment;
-//import android.support.v4.content.FileProvider;
-//import android.util.Log;
-//import android.view.View;
-//
-//import com.oop_project.cs212.islamicapp.BuildConfig;
-//import com.oop_project.cs212.islamicapp.R;
-//import com.oop_project.cs212.islamicapp.SavedData;
-//import com.oop_project.cs212.islamicapp.database.MyDatabase;
-//
-//import java.io.File;
-//import java.util.ArrayList;
-//import java.util.Arrays;
-//import java.util.List;
-//import java.util.Random;
-//
-//public class HomePresenter implements MVPPresenter.HomePresenter {
-//
-//    private Context context;
-//    private MVPView.HomeView mvpView;
-//    private SavedData savedData;
-//    private MyDatabase myDatabase;
-//
-//
-//    public HomePresenter(Fragment fragment) {
-//        mvpView = (MVPView.HomeView) fragment;
-//        context = fragment.getContext();
-//        savedData = new SavedData(context);
-//        myDatabase = new MyDatabase(context);
-//
-//
-//    }
-//
-//    @Override
-//    public void createBitMap(View layoutView) {
-//        mvpView.storeBitMapImage(createBitmapFromView(layoutView));
-//    }
-//
-//    @Override
-//    public void createIntentToShareImage(File filePath){
-//        mvpView.shareImage(getShareIntent(filePath));
-//
-//    }
-//
-//    @Override
-//    public void initializeRemainder(){
-//
-//        long newInterval = savedData.getNewRemainderInterval();
-//        long oldInterval = savedData.getOldRemainderInterval();
-//
-//        if (newInterval != oldInterval) {
-//
-//            int hour = savedData.getAppStartHour();
-//            int mint = savedData.getAppStartMin();
-//
-//            mvpView.updateRemainder(context, hour, mint, newInterval);
-//            savedData.setOldRemainderInterval(newInterval);
-//        }
-//    }
-//
-//    /*
-//    * Convert text{verse} to bitmap
-//    * */
-//    //this method will create a bitmap image from given view
-//    public Bitmap createBitmapFromView(View layoutView){
-//        //Define a bitmap with the same size as the view
-//        Bitmap returnedBitmap = Bitmap.createBitmap(layoutView.getWidth(), layoutView.getHeight(),Bitmap.Config.ARGB_8888);
-//        //Bind a canvas to it
-//        Canvas canvas = new Canvas(returnedBitmap);
-//        //Get the view's background
-//        Drawable bgDrawable =layoutView.getBackground();
-//        if (bgDrawable!=null) {
-//            //has background drawable, then draw it on the canvas
-//            bgDrawable.draw(canvas);
-//        }   else{
-//            //does not have background drawable, then draw white background on the canvas
-//            canvas.drawColor(Color.WHITE);
-//        }
-//        // draw the view on the canvas
-//        layoutView.draw(canvas);
-//        return returnedBitmap;
-//    }
-//
-//    //this method will create a intent for share our image
-//    public Intent getShareIntent(File filePath){
-//
-//        Intent shareIntent = new Intent(Intent.ACTION_SEND);
-//        //shareIntent.putExtra(Intent.EXTRA_TEXT, context.getResources().getString(R.string.app_signature)+" "+context.getResources().getString(R.string.app_google_play_url)+".");
-//
-//        shareIntent.setType("image/*");
-//
-//        /** Build version >=24 we need to use file provider */
-//        if(Build.VERSION.SDK_INT>=24){
-//            Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID + ".provider",filePath.getAbsoluteFile());
-//            shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-//            shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
-//        }else{
-//            shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(filePath));
-//        }
-//
-//        shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-//
-//        return shareIntent;
-//    }
-//
-//    /*
-//     * this method will make ready data for new atkhar image
-//     * */
-//    @Override
-//    public void prepareAtkhar(){
-//
-//        int lastAthkarId = savedData.getLastAthkarId();
-//        Log.d("TodayHijri", "prepareAtkhar: "+lastAthkarId);
-//        String tableName = savedData.getAthkarTableName();//get saved athkar table name
-//        getAtkhar(lastAthkarId,tableName);
-//
-//    }
-//
-//    /*
-//     * if user press create button then we don't need to wait for new date also we will change old information
-//     * */
-//    @Override
-//    public void prepareAtkharBtnPress(){
-//
-//        int lastAtkharId = savedData.getLastAthkarId();
-//
-//        lastAtkharId += 1;
-//        savedData.setLastAthkarId(lastAtkharId);
-//        getAtkhar(lastAtkharId);
-//    }
-//
-//    public void getAtkhar(int id){
-//
-//        String tableName = getTableName();
-//        int lastDataId = myDatabase.getLastDataId(tableName);
-//        String atkhar;
-//
-//        if (lastDataId >= id){
-//            //still available new data
-//            atkhar = myDatabase.getAtkhar(tableName, id);
-//        }else {
-//
-//            //no new data available we already seen last atkhar lets start again from first
-//            id = 0;
-//            atkhar = myDatabase.getAtkhar(tableName, id);
-//            savedData.setLastAthkarId(id);
-//        }
-//
-//        mvpView.setTodayImage(atkhar);
-//    }
-//
-//    public void getAtkhar(int id, String tableName){
-//
-//        if (tableName == null){
-//            tableName = getTableName();
-//        }
-//        int lastDataId = myDatabase.getLastDataId(tableName);
-//
-//        String atkhar;
-//
-//        if (lastDataId >= id){
-//            //still available new data
-//            atkhar = myDatabase.getAtkhar(tableName, id);
-//        }else {
-//
-//            //no new data available we already seen last atkhar lets start again from first
-//            id = 0;
-//            atkhar = myDatabase.getAtkhar(tableName, id);
-//            savedData.setLastAthkarId(id);
-//        }
-//
-//        mvpView.setTodayImage(atkhar);
-//    }
-//
-//    public String getTableName(){
-//        List<String > tableLanguages = Arrays.asList(context.getResources().getStringArray(R.array.remainder_language_table_name));
-//
-//        int size = tableLanguages.size();
-//        boolean[] remainderLanguages = savedData.getRemainderLanguages(size);
-//
-//        ArrayList<Integer> indexNoOfSelectedLanguage = new ArrayList<>();
-//
-//        for (int i = 0; i < size; i++){
-//            if (remainderLanguages[i]){
-//                indexNoOfSelectedLanguage.add(i);
-//            }
-//        }
-//        size = indexNoOfSelectedLanguage.size();
-//        Random random= new Random();
-//        int randomSelectedLanguageIndex = random.nextInt(size);
-//
-//        String tableName = tableLanguages.get(indexNoOfSelectedLanguage.get(randomSelectedLanguageIndex));
-//        savedData.saveAthkarTableName(tableName);//new image generated table name
-//        return tableName;
-//    }
-//}
+package com.oop_project.cs212.islamicapp.MVP;
+import android.location.Address;
+import android.location.Geocoder;
+import android.os.AsyncTask;
+import android.util.Log;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
+import java.util.concurrent.TimeUnit;
+
+import android.content.Context;
+import android.support.v4.app.Fragment;
+import android.view.View;
+
+import com.oop_project.cs212.islamicapp.BuildConfig;
+import com.oop_project.cs212.islamicapp.GPSTracker;
+import com.oop_project.cs212.islamicapp.R;
+import com.oop_project.cs212.islamicapp.SavedData;
+import com.oop_project.cs212.islamicapp.adapters.PrayerTimeAdapter;
+import com.oop_project.cs212.islamicapp.database.MyDatabase;
+import com.oop_project.cs212.islamicapp.fragments.Home;
+import com.oop_project.cs212.islamicapp.model.PrayerTimeModel;
+
+import net.alhazmy13.PrayerTimes.PrayerTime;
+
+public class HomePresenter implements MVPPresenter.HomePresenter {
+    private MVPView.HomeView MVPView;
+    private int calculationMethodId;
+    private int juristicMethodId;
+    private String city;
+    private Context context;
+    private GPSTracker gps;
+    private double latitude, longitude;
+    private SavedData savedData;
+    private ArrayList<PrayerTimeModel> prayerTimes;
+    private Context mContext;
+
+
+    public HomePresenter(Fragment fragment) {
+        mContext = fragment.getContext();
+        this.MVPView = (com.oop_project.cs212.islamicapp.MVP.MVPView.HomeView) fragment;
+        prayerTimes = new ArrayList<>();
+        savedData = new SavedData(fragment.getContext());
+        calculationMethodId = savedData.getCalculationMethodId();
+        juristicMethodId = savedData.getJuristicMethodId();
+        city = savedData.getUserCity();
+        latitude = savedData.getLat();
+        longitude = savedData.getLong();
+    }
+    public void startCalculationPrayerTime() {
+
+        try {
+            gps = new GPSTracker(mContext);
+            getLocation();// if gps setting is not available this method will call alert dialog message from prayerTime fragment so must call it from main Thread
+
+            HomePresenter.PerformBackground background = new HomePresenter.PerformBackground();
+            background.execute();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+    }
+    class PerformBackground extends AsyncTask<Void, Void, Boolean> {
+
+        @Override
+        protected Boolean doInBackground(Void... voids) {
+
+            if (savedData.getLong() != 0) {
+                calculateTime();
+            }
+            try {
+                Geocoder gcd = new Geocoder(mContext, Locale.getDefault());
+                List<Address> addresses = gcd.getFromLocation(latitude, longitude, 1);
+                if (addresses.size() > 0) {
+
+                    Log.d("TEST", "doInBackground: " + addresses.get(0));
+                    Log.d("TEST", "doInBackground: " + addresses.get(0).getCountryCode());
+                    if (addresses.get(0).getLocality() != null) {
+                        savedData.saveUserCity(addresses.get(0).getLocality());
+                        city = savedData.getUserCity();
+                    } else {
+                        savedData.saveUserCity(addresses.get(0).getAdminArea());
+                        city = savedData.getUserCity();
+                    }
+
+
+                    return true;
+                } else return false;
+            } catch (IOException e) {
+                e.printStackTrace();
+
+            }
+
+            return true;
+
+        }
+        @Override
+        protected void onPostExecute(Boolean aVoid) {
+            super.onPostExecute(aVoid);
+            MVPView.setCityName(city);
+
+        }
+    }
+    public ArrayList calculateTime(){
+
+        prayerTimes = new ArrayList<>();
+
+        // our prayer_calculation_method and juristic_method(from string) index number must be same as bellow format
+        //example for calculation method first index will be jafari = 0 position
+
+        /*
+        * // Calculation Methods
+        public static final int Jafari = 0; // Ithna Ashari
+        public static final int Karachi = 1; // University of Islamic Sciences, Karachi
+        public static final int Makkah = 4; // Umm al-Qura, Makkah
+        public static final int Egypt = 5; // Egyptian General Authority of Survey
+        public static final int Custom = 6; // Custom Setting
+
+        final class Juristic{
+            // Juristic Methods
+            public static final int Shafii = 0; // Shafii (standard)
+            public static final int Hanafi = 1; // Hanafi
+        }*/
+
+
+        PrayerTime prayers = new PrayerTime();
+        prayers.setTimeFormat(PrayerTime.TimeFormat.Time12);
+        prayers.setCalcMethod(calculationMethodId);//PrayerTime.Calculation.Karachi
+        prayers.setAsrJuristic(juristicMethodId);//PrayerTime.Juristic.Shafii
+        prayers.setAdjustHighLats(PrayerTime.Adjusting.AngleBased);
+        prayers.setOffsets(new int[]{0, 0, 0, 0, 0, 0, 0});
+
+
+        ArrayList<String> times = prayers.getPrayerTimes(Calendar.getInstance(),
+                savedData.getLat(), savedData.getLong(), getTimeZone());
+
+        prayerTimes.add(new PrayerTimeModel(mContext.getString(R.string.fajr),times.get(PrayerTime.Time.Fajr)));
+        prayerTimes.add(new PrayerTimeModel(mContext.getString(R.string.sunrise),times.get(PrayerTime.Time.Sunrise)));
+        prayerTimes.add(new PrayerTimeModel(mContext.getString(R.string.dhuhr),times.get(PrayerTime.Time.Dhuhr)));
+        prayerTimes.add(new PrayerTimeModel(mContext.getString(R.string.asr),times.get(PrayerTime.Time.Asr)));
+        prayerTimes.add(new PrayerTimeModel(mContext.getString(R.string.magrib),times.get(PrayerTime.Time.Maghrib)));
+        prayerTimes.add(new PrayerTimeModel(mContext.getString(R.string.isha),times.get(PrayerTime.Time.Isha)));
+        return prayerTimes;
+
+
+    }
+
+    private boolean getLocation() {
+
+        try {
+            // check if GPS enabled
+            if (gps.canGetLocation()) {
+                latitude = gps.getLatitude();
+                longitude = gps.getLongitude();
+
+                savedData.saveLongitude((float) longitude);
+                savedData.saveLat((float) latitude);
+                return true;
+            }else if (savedData.getLat() != 0 && savedData.getLong() != 0){
+                latitude = savedData.getLat();
+                longitude = savedData.getLong();
+               // MVPView.showGpsSettingAlert();
+
+                return false;
+            }else{
+                //MVPView.showGpsSettingAlert();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return false;
+
+    }
+    public double getTimeZone() {
+
+
+        Calendar mCalendar = new GregorianCalendar();
+        TimeZone mTimeZone = mCalendar.getTimeZone();
+        int mGMTOffset = mTimeZone.getRawOffset();
+        Double timeZone = Double.valueOf(TimeUnit.HOURS.convert(mGMTOffset, TimeUnit.MILLISECONDS));
+
+        return timeZone;
+    }
+}

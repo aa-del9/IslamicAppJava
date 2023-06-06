@@ -84,7 +84,6 @@ public class PrayerTime extends Fragment implements MVPView.PrayerTimeView{
         refreshLayout = v.findViewById(R.id.refreshLayout);
         refreshLayout.setOnRefreshListener(refreshListener);
         internetConnectionTest = new CheckInternetConnection();
-        //ring= MediaPlayer.create(getContext(),R.raw.prayer_allahu_akbar);
 
         LocalBroadcastManager.getInstance(getActivity()).registerReceiver(connectionStatusReceiver
                 ,new IntentFilter(Utils.BROADCAST_CONNECTION_STATUS));
