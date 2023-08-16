@@ -224,7 +224,7 @@ public class Home extends Fragment implements MVPView.HomeView{
             try{
                 Date date = inputFormat.parse(timeString);
                 prayerTime = outputFormat.format(date);
-                Toast.makeText(getContext(), prayerTime, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), prayerTime, Toast.LENGTH_SHORT).show();
             }
             catch (ParseException e) {
                 e.printStackTrace();
