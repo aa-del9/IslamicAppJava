@@ -19,7 +19,7 @@
     <string name="frequency">"كل كم تحب ان نذكرك؟ "</string>
 
     <string name="app_title">تطبيق اسلامي</string>
-    <string name="app_slogan">تنبيهات إسلاميّة</string>
+    <string name="app_slogan">تطبيق إسلامي مفيد</string>
 
     <string-array name="frequency">
         <item>مرة كل ساعة</item>
